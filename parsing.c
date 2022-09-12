@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:22:48 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 11:23:40 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:06:49 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,20 @@ int	is_valid_numbers(char *argv[])
 	if(is_integer(argv) == 0)
 		return (0);
 	return (1);
+}
+
+int	is_duplicated(t_stack *stack)
+{
+	int	i;
+	int	tmp_size;
+
+	i = 0;
+	tmp_size = stack->size_a;
+	while (tmp_size--)
+	{
+		if (stack->a[i] == stack->a[i + 1])
+			return (1);
+		i++;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 11:54:44 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:07:26 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	init_stack(int argc, char *argv[], t_stack *stack)
 	stack->a = malloc(sizeof(int) * argc);
 	stack->b = malloc(sizeof(int) * argc);
 	if (stack->a == NULL || stack->b == NULL)
-		return (0);
+		return (1);
 	stack->size_a = --argc;
 	stack->size_b = 0;
 	i = 1;
@@ -35,15 +35,17 @@ int	init_stack(int argc, char *argv[], t_stack *stack)
 		stack->a[i-1] = (int)ft_atol(argv[i]);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void	print_stack(t_stack *stack)
 {
 	int	i;
+	int	tmp_size;
 
+	tmp_size = stack->size_a;
 	i = 0;
-	while (stack->size_a--) 
+	while (tmp_size--) 
 	{
 		printf("a[%d] = %d\n", i, stack->a[i]);
 		i++;
@@ -56,7 +58,8 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2 || !is_valid_numbers(argv))
 		return (1);
-	init_stack(argc, argv, &stack);
+	if (init_stack(argc, argv, &stack) || is_duplicated(&stack))
+		return (1);
 	print_stack(&stack);
 	free_stack(&stack);
 	return (0);
