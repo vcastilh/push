@@ -6,7 +6,7 @@
 #    By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 00:26:46 by vcastilh          #+#    #+#              #
-#    Updated: 2022/09/12 09:34:42 by vcastilh         ###   ########.fr        #
+#    Updated: 2022/09/12 15:21:08 by vcastilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -Wall -Wextra -Werror -g3 -c
 LIBFT = libft.a
 SRCS = main.c \
 	   parsing.c \
+	   rules.c \
 
 OBJS = $(SRCS:.c=.o)
 

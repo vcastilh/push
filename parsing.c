@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:22:48 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 15:06:49 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:24:52 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	is_duplicated(t_stack *stack)
 
 	i = 0;
 	tmp_size = stack->size_a;
-	while (tmp_size--)
+	while (--tmp_size)
 	{
 		if (stack->a[i] == stack->a[i + 1])
 			return (1);

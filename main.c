@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 15:07:26 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/12 18:00:23 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (init_stack(argc, argv, &stack) || is_duplicated(&stack))
 		return (1);
+	// tetsing swap
+	//swap(stack.a, 'a');
+	// testing rotate
+	//rotate(stack.a, &stack);
+	reverse_rotate(stack.a, stack.size_a);
 	print_stack(&stack);
 	free_stack(&stack);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 14:29:11 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 14:56:44 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/12 18:23:17 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,7 @@ int		is_duplicated(t_stack *stack);
 int		init_stack(int argc, char *argv[], t_stack *stack);
 void	free_stack(t_stack *stack);
 void	print_stack(t_stack *stack);
+void	swap(int *vector, char stack);
+void	rotate(int *vector, int size);
+void	reverse_rotate(int *vector, int size);
 #endif
