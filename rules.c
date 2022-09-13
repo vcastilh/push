@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 15:09:37 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 18:29:27 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/12 19:30:31 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,20 @@ void	reverse_rotate(int *vector, int size)
 	tmp = vector[size - 1];
 	ft_memmove(&vector[1], &vector[0], sizeof(int) * (size - 1));
 	vector[0] = tmp;
+}
+
+void	push(int *src, int *dst, t_stack *stack)
+{
+	int	tmp;
+
+	tmp = src[0];
+	if (stack->size_a > 0)
+	{
+		ft_memmove(&src[0], &src[1], (stack->size_a - 1) * sizeof(int));
+		ft_memmove(&dst[1], &dst[0], (stack->size_b) * sizeof(int));
+		dst[0] = tmp;
+	}
+	stack->size_a -= 1;
+	stack->size_b += 1;
 }
 

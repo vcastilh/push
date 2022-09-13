@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 18:00:23 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/12 21:52:39 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,14 @@ int	init_stack(int argc, char *argv[], t_stack *stack)
 	return (0);
 }
 
-void	print_stack(t_stack *stack)
+void	print_stack(int *stack, int size)
 {
 	int	i;
-	int	tmp_size;
 
-	tmp_size = stack->size_a;
 	i = 0;
-	while (tmp_size--) 
+	while (size--) 
 	{
-		printf("a[%d] = %d\n", i, stack->a[i]);
+		printf("[%d] = %d\n", i, stack[i]);
 		i++;
 	}
 }
@@ -64,8 +62,14 @@ int	main(int argc, char *argv[])
 	//swap(stack.a, 'a');
 	// testing rotate
 	//rotate(stack.a, &stack);
-	reverse_rotate(stack.a, stack.size_a);
-	print_stack(&stack);
+	//reverse_rotate(stack.a, stack.size_a);
+	push(stack.a, stack.b, &stack); 
+	push(stack.a, stack.b, &stack); 
+	push(stack.a, stack.b, &stack); 
+	printf("STACK A:\n");
+	print_stack(stack.a, stack.size_a);
+	printf("STACK B:\n");
+	print_stack(stack.b, stack.size_b);
 	free_stack(&stack);
 	return (0);
 }
