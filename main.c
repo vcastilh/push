@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/14 18:09:59 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/14 20:15:45 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,10 +140,13 @@ int	main(int argc, char *argv[])
 {
 	t_stack	stack;
 
-	if (argc < 2 || !is_valid_numbers(argv) || !is_sorted(&stack))
+	if (argc < 2 || !is_valid_numbers(argv)) 
 		return (1);
-	if (init_stack(argc, argv, &stack) || is_duplicated(&stack))
+	if (init_stack(argc, argv, &stack) || is_duplicated(&stack) || is_sorted(&stack))
+	{
+		free_stack(&stack);
 		return (1);
+	}
 	is_positives(&stack);
 	if (stack.size_a == 2)
 		swap(stack.a, 'a');
