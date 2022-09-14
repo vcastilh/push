@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/13 23:54:38 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:09:59 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ int	init_stack(int argc, char *argv[], t_stack *stack)
 	return (0);
 }
 
-void	print_stack(int *stack, int size)
-{
-	int	i;
-
-	i = 0;
-	while (size--) 
-	{
-		printf("[%d] = %d\n", i, stack[i]);
-		i++;
-	}
-}
+//void	print_stack(int *stack, int size)
+//{
+//	int	i;
+//
+//	i = 0;
+//	while (size--) 
+//	{
+//		printf("[%d] = %d\n", i, stack[i]);
+//		i++;
+//	}
+//}
 
 int	find_min(t_stack *stack)
 {
@@ -118,28 +118,58 @@ void	re_order(t_stack *stack, int nb_sum)
 	}
 }
 
+int	is_sorted(t_stack *stack)
+{
+	int	size;
+	int	i;
+
+	size = stack->size_a;
+	i = 0;
+	while (i < size--)
+	{
+		if (stack->a[i] > stack->a[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+// top to middle, middle to bottom, and bottom to top
+
 int	main(int argc, char *argv[])
 {
 	t_stack	stack;
 
-	if (argc < 2 || !is_valid_numbers(argv))
+	if (argc < 2 || !is_valid_numbers(argv) || !is_sorted(&stack))
 		return (1);
 	if (init_stack(argc, argv, &stack) || is_duplicated(&stack))
 		return (1);
 	is_positives(&stack);
+	if (stack.size_a == 2)
+		swap(stack.a, 'a');
+	else if (stack.size_a == 3)
+		sort_three(&stack);
+
+		//small_sort(&stack);
+	//radix();
+		
 
 	//radix recebe positivos 1.pegar menor numero e multiplica por -1 e soma, 1 - 9 -7 8 -4 => 10 0 2 17 5
 
 	//função boleana se estiver ordenado o vetor
 
+	//algo pra 3 e 5 números
+	//radix acima de 50 números
+	//
+	//
 	//swap(stack.a, 'a');
 	//rotate(stack.a, stack.size_a);
 	//reverse_rotate(stack.a, stack.size_a);
 	//push(stack.a, stack.b, &stack); 
-	printf("STACK A:\n");
-	print_stack(stack.a, stack.size_a);
-	printf("STACK B:\n");
-	print_stack(stack.b, stack.size_b);
+//	printf("STACK A:\n");
+//	print_stack(stack.a, stack.size_a);
+//	printf("STACK B:\n");
+//	print_stack(stack.b, stack.size_b);
 	free_stack(&stack);
 	return (0);
 }

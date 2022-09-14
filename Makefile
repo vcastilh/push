@@ -6,7 +6,7 @@
 #    By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 00:26:46 by vcastilh          #+#    #+#              #
-#    Updated: 2022/09/12 15:21:08 by vcastilh         ###   ########.fr        #
+#    Updated: 2022/09/14 18:03:04 by vcastilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ LIBFT = libft.a
 SRCS = main.c \
 	   parsing.c \
 	   rules.c \
+	   sort.c \
 
 OBJS = $(SRCS:.c=.o)
 

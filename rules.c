@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 15:09:37 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 19:30:31 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:24:04 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	swap(int *vector, char stack)
 }
 
 // 212 32 5 42 9
-void	rotate(int *vector, int size)
+void	rotate(int *vector, int size, char stack)
 {
 	int	tmp;
 
@@ -34,15 +34,23 @@ void	rotate(int *vector, int size)
 	tmp = vector[0];
 	ft_memmove(&vector[0], &vector[1], sizeof(int) * (size));
 	vector[size] = tmp;
+	if (stack == 'a')
+		write(1, "ra\n", 3);
+	else
+		write(1, "rb\n", 3);
 }
 
-void	reverse_rotate(int *vector, int size)
+void	reverse_rotate(int *vector, int size, char stack)
 {
 	int	tmp;
 
 	tmp = vector[size - 1];
 	ft_memmove(&vector[1], &vector[0], sizeof(int) * (size - 1));
 	vector[0] = tmp;
+	if (stack == 'a')
+		write(1, "rra\n", 4);
+	else
+		write(1, "rrb\n", 4);
 }
 
 void	push(int *src, int *dst, t_stack *stack)
