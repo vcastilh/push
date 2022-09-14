@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 21:52:39 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/13 23:54:38 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,74 @@ void	print_stack(int *stack, int size)
 	}
 }
 
+int	find_min(t_stack *stack)
+{
+	int	size;
+	int	i;
+	int	min;
+	int	pos;
+
+	size = stack->size_a;
+	i = 0;
+	min = 0;
+	while (size--)
+	{
+		if (stack->a[i] < 0)
+		{
+			if (min > stack->a[i])
+			{
+				min = stack->a[i];
+				pos = i;
+			}
+		}
+		i++;
+	}
+	return (pos);
+}
+
+int	is_positives(t_stack *stack)
+{
+	int	size;
+	int	i;
+	int	pos;
+
+	size = stack->size_a;
+	i = 0;
+	while (size--)
+	{
+		if (stack->a[i] < 0)
+		{
+			pos = find_min(stack);
+			re_order(stack, turn_positive(stack, pos));
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	turn_positive(t_stack *stack, int pos)
+{
+	int	tmp;
+
+	tmp = stack->a[pos] * -1;
+	return (tmp);
+}
+
+void	re_order(t_stack *stack, int nb_sum)
+{
+	int	size;
+	int	i;
+
+	size = stack->size_a;
+	i = 0;
+	while (size--)
+	{
+		while (stack->a[i])
+			stack->a[i++] += nb_sum; 
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack	stack;
@@ -58,14 +126,16 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (init_stack(argc, argv, &stack) || is_duplicated(&stack))
 		return (1);
-	// tetsing swap
+	is_positives(&stack);
+
+	//radix recebe positivos 1.pegar menor numero e multiplica por -1 e soma, 1 - 9 -7 8 -4 => 10 0 2 17 5
+
+	//função boleana se estiver ordenado o vetor
+
 	//swap(stack.a, 'a');
-	// testing rotate
-	//rotate(stack.a, &stack);
+	//rotate(stack.a, stack.size_a);
 	//reverse_rotate(stack.a, stack.size_a);
-	push(stack.a, stack.b, &stack); 
-	push(stack.a, stack.b, &stack); 
-	push(stack.a, stack.b, &stack); 
+	//push(stack.a, stack.b, &stack); 
 	printf("STACK A:\n");
 	print_stack(stack.a, stack.size_a);
 	printf("STACK B:\n");

@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 14:29:11 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 19:34:43 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/13 23:46:58 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,8 @@ void	swap(int *vector, char stack);
 void	rotate(int *vector, int size);
 void	reverse_rotate(int *vector, int size);
 void	push(int *src, int *dst, t_stack *stack);
+int		is_positives(t_stack *stack);
+int		find_min(t_stack *stack);
+int		turn_positive(t_stack *stack, int pos);
+void	re_order(t_stack *stack, int nb_sum);
 #endif
