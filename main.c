@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/14 20:15:45 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/14 21:35:24 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,9 @@ int	is_sorted(t_stack *stack)
 	int	size;
 	int	i;
 
-	size = stack->size_a;
+	size = stack->size_a - 2;
 	i = 0;
-	while (i < size--)
+	while (i < size)
 	{
 		if (stack->a[i] > stack->a[i + 1])
 			return (0);
@@ -152,8 +152,10 @@ int	main(int argc, char *argv[])
 		swap(stack.a, 'a');
 	else if (stack.size_a == 3)
 		sort_three(&stack);
+	else if (stack.size_a <= 50)
+		small_sort(&stack);
 
-		//small_sort(&stack);
+	//small_sort(&stack);
 	//radix();
 		
 
