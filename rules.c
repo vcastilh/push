@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 15:09:37 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/14 21:23:15 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:32:20 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,15 @@ void	reverse_rotate(int *vector, int size, char stack)
 		write(1, "rrb\n", 4);
 }
 
-void	push(int *src, int *dst, t_stack *stack, char move)
+void	push(int *dst, int *src, t_stack *stack, char move)
 {
 	int	tmp;
 
 	tmp = src[0];
 	if (stack->size_a > 0)
 	{
-		ft_memmove(&src[0], &src[1], (stack->size_a - 1) * sizeof(int));
-		ft_memmove(&dst[1], &dst[0], (stack->size_b) * sizeof(int));
+		ft_memmove(src, &src[1], (stack->src_len - 1) * sizeof(int));
+		ft_memmove(&dst[1], dst, (stack->dst_len) * sizeof(int));
 		dst[0] = tmp;
 	}
 	if (move == 'a')
@@ -77,4 +77,3 @@ void	push(int *src, int *dst, t_stack *stack, char move)
 		write(1, "pb\n", 3);
 	}
 }
-

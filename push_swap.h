@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 14:29:11 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/14 21:23:30 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:32:14 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_stack
 	int	*b;
 	int	size_a;
 	int	size_b;
+	int	src_len;
+	int	dst_len;
 }	t_stack;
 
 
@@ -35,7 +37,7 @@ void	print_stack(int *stack, int size);
 void	swap(int *vector, char stack);
 void	rotate(int *vector, int size, char stack);
 void	reverse_rotate(int *vector, int size, char stack);
-void	push(int *src, int *dst, t_stack *stack, char move);
+void	push(int *dst, int *src, t_stack *stack, char move);
 int		is_sorted(t_stack *stack);
 int		is_positives(t_stack *stack);
 int		find_min(t_stack *stack);
@@ -43,4 +45,5 @@ int		turn_positive(t_stack *stack, int pos);
 void	re_order(t_stack *stack, int nb_sum);
 void	sort_three(t_stack *stack);
 void	small_sort(t_stack *stack);
+int		check_sort(t_stack *stack);
 #endif

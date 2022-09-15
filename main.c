@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/14 21:35:24 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:32:16 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	init_stack(int argc, char *argv[], t_stack *stack)
 {
 	int	i;
 
-	stack->a = malloc(sizeof(int) * argc);
-	stack->b = malloc(sizeof(int) * argc);
+	stack->a = malloc(sizeof(int) * (argc + 1));
+	stack->b = malloc(sizeof(int) * (argc + 1));
 	if (stack->a == NULL || stack->b == NULL)
 		return (1);
 	stack->size_a = --argc;
@@ -118,21 +118,7 @@ void	re_order(t_stack *stack, int nb_sum)
 	}
 }
 
-int	is_sorted(t_stack *stack)
-{
-	int	size;
-	int	i;
 
-	size = stack->size_a - 2;
-	i = 0;
-	while (i < size)
-	{
-		if (stack->a[i] > stack->a[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 // top to middle, middle to bottom, and bottom to top
 
@@ -141,11 +127,11 @@ int	main(int argc, char *argv[])
 	t_stack	stack;
 
 	if (argc < 2 || !is_valid_numbers(argv)) 
-		return (1);
+		return (0);
 	if (init_stack(argc, argv, &stack) || is_duplicated(&stack) || is_sorted(&stack))
 	{
 		free_stack(&stack);
-		return (1);
+		return (0);
 	}
 	is_positives(&stack);
 	if (stack.size_a == 2)
