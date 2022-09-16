@@ -45,7 +45,7 @@ int	check_sort(t_stack *stack)
 	int	size;
 	int	i;
 
-	size = stack->size_a - 2;
+	size = stack->size_a - 1;
 	i = 0;
 	while (i < size)
 	{
@@ -63,25 +63,11 @@ int	is_sorted(t_stack *stack)
 
 	size = stack->size_a;
 	i = 0;
-	if (size < 3)
+	while (i < size)
 	{
-		while (i < size)
-		{
-			if (stack->a[i] > stack->a[i + 1])
-				return (0);
-			i++;
-			size--;
-		}
-	}
-	else
-	{
-		while (i <= size)
-		{
-			if (stack->a[i] > stack->a[i + 1])
-				return (0);
-			i++;
-			size--;
-		}
+		if (stack->a[i] > stack->a[i + 1])
+			return (0);
+		i++;
 	}
 	return (1);
 }
@@ -92,7 +78,7 @@ void	small_sort(t_stack *stack)
 	{
 		if (stack->a[0] > stack->a[1])
 			swap(stack->a, 'a');
-		if (is_sorted(stack))
+		if (check_sort(stack))
 		{
 			stack->src_len = stack->size_b;
 			stack->dst_len = stack->size_a;
