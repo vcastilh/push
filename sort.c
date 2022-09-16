@@ -63,12 +63,25 @@ int	is_sorted(t_stack *stack)
 
 	size = stack->size_a;
 	i = 0;
-	while (i <= size)
+	if (size < 3)
 	{
-		if (stack->a[i] > stack->a[i + 1])
-			return (0);
-		i++;
-		size--;
+		while (i < size)
+		{
+			if (stack->a[i] > stack->a[i + 1])
+				return (0);
+			i++;
+			size--;
+		}
+	}
+	else
+	{
+		while (i <= size)
+		{
+			if (stack->a[i] > stack->a[i + 1])
+				return (0);
+			i++;
+			size--;
+		}
 	}
 	return (1);
 }
@@ -94,3 +107,4 @@ void	small_sort(t_stack *stack)
 		}
 	}
 }
+//"2", "1", "3", "6", "5", "8"

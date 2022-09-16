@@ -112,10 +112,7 @@ void	re_order(t_stack *stack, int nb_sum)
 	size = stack->size_a;
 	i = 0;
 	while (size--)
-	{
-		while (stack->a[i])
-			stack->a[i++] += nb_sum; 
-	}
+		stack->a[i++] += nb_sum; 
 }
 
 
@@ -126,19 +123,22 @@ int	main(int argc, char *argv[])
 {
 	t_stack	stack;
 
-	if (argc < 2 || !is_valid_numbers(argv)) 
+	if (argc < 2) 
 		return (0);
-	if (init_stack(argc, argv, &stack) || is_duplicated(&stack) || is_sorted(&stack))
+	if (init_stack(argc, argv, &stack) || is_duplicated(&stack) || !is_valid_numbers(argv))
 	{
 		free_stack(&stack);
+		write(1, "Error\n", 6);
 		return (0);
 	}
+	if (is_sorted(&stack))
+		return (0);
 	is_positives(&stack);
 	if (stack.size_a == 2)
 		swap(stack.a, 'a');
 	else if (stack.size_a == 3)
 		sort_three(&stack);
-	else if (stack.size_a <= 50)
+	else if (stack.size_a <= 9)
 		small_sort(&stack);
 
 	//small_sort(&stack);
