@@ -19,8 +19,8 @@
 
 typedef struct s_stack
 {
-	int	*a;
-	int	*b;
+	long long	*a;
+	long long	*b;
 	int	size_a;
 	int	size_b;
 	int	src_len;
@@ -33,17 +33,18 @@ int		is_valid_numbers(char *argv[]);
 int		is_duplicated(t_stack *stack);
 int		init_stack(int argc, char *argv[], t_stack *stack);
 void	free_stack(t_stack *stack);
-void	print_stack(int *stack, int size);
-void	swap(int *vector, char stack);
-void	rotate(int *vector, int size, char stack);
-void	reverse_rotate(int *vector, int size, char stack);
-void	push(int *dst, int *src, t_stack *stack, char move);
+void	print_stack(long long *stack, int size);
+void	swap(long long *vector, char stack);
+void	rotate(long long *vector, int size, char stack);
+void	reverse_rotate(long long *vector, int size, char stack);
+void	push(long long *dst, long long *src, t_stack *stack, char move);
 int		is_sorted(t_stack *stack);
 int		is_positives(t_stack *stack);
 int		find_min(t_stack *stack);
-int		turn_positive(t_stack *stack, int pos);
-void	re_order(t_stack *stack, int nb_sum);
+long long		turn_positive(t_stack *stack, int pos);
+void	re_order(t_stack *stack, long long nb_sum);
 void	sort_three(t_stack *stack);
 void	small_sort(t_stack *stack);
 int		check_sort(t_stack *stack);
+void	radix(t_stack *stack);
 #endif

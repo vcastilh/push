@@ -61,7 +61,7 @@ int	is_sorted(t_stack *stack)
 	int	size;
 	int	i;
 
-	size = stack->size_a;
+	size = stack->size_a - 1;
 	i = 0;
 	while (i < size)
 	{
@@ -90,6 +90,37 @@ void	small_sort(t_stack *stack)
 			stack->src_len = stack->size_a;
 			stack->dst_len = stack->size_b;
 			push(stack->b, stack->a, stack, 'b'); //pb
+		}
+	}
+}
+
+void	radix(t_stack *stack)
+{
+	int	bit;
+	int	j;
+
+	bit = 0;
+	while (!is_sorted(stack))
+	{
+		j = 0;
+		while (j < stack->size_a + stack->size_b)
+		{
+			if ((stack->a[0] >> bit) & 1)
+				rotate(stack->a, stack->size_a, 'a');
+			else
+			{
+				stack->dst_len = stack->size_b;
+				stack->src_len = stack->size_a;
+				push(stack->b, stack->a, stack, 'b');
+			}				
+			j++;
+		}
+		bit++;
+		while (stack->size_b > 0)
+		{
+			stack->dst_len = stack->size_a;
+			stack->src_len = stack->size_b;
+			push(stack->a, stack->b, stack, 'a');
 		}
 	}
 }
