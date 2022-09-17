@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/17 11:32:37 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/17 12:56:17 by vcastilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ int	main(int argc, char *argv[])
 {
 	t_stack	stack;
 
+	if (!is_valid_numbers(argv))
+			return (write(1, "Error\n", 6), 1);
 	if (argc < 2)
 		return (1);
-	if (init_stack(argc, argv, &stack) || !is_valid_numbers(argv)
+	if (init_stack(argc, argv, &stack)
 		|| is_duplicated(&stack))
 	{
 		free_stack(&stack);
