@@ -43,8 +43,8 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2)
 		return (1);
-	if (init_stack(argc, argv, &stack) || is_duplicated(&stack)
-		|| !is_valid_numbers(argv))
+	if (!is_valid_numbers(argv) || init_stack(argc, argv, &stack)
+		|| is_duplicated(&stack))
 	{
 		free_stack(&stack);
 		write(1, "Error\n", 6);
