@@ -33,7 +33,7 @@ int	is_number(char *numb)
 {
 	while (*numb)
 	{
-		if (*numb == '-')
+		if (*numb == '-' || *numb == '+')
 			numb++;
 		else if (ft_isdigit(*numb))
 			numb++;
@@ -62,14 +62,20 @@ int	is_valid_numbers(char *argv[])
 int	is_duplicated(t_stack *stack)
 {
 	int	i;
+	int	j;
 	int	tmp_size;
 
 	i = 0;
 	tmp_size = stack->size_a;
-	while (--tmp_size)
+	while (i < tmp_size - 2)
 	{
-		if (stack->a[i] == stack->a[i + 1])
-			return (1);
+		j = i + 1;
+		while (j < tmp_size)
+		{
+			if (stack->a[i] == stack->a[j])
+				return (1);
+			j++;
+		}
 		i++;
 	}
 	return (0);
