@@ -77,7 +77,7 @@ void	re_order(t_stack *stack, long long nb_sum)
 		stack->a[i++] += nb_sum;
 }
 
-void	set_mem_len(t_stack *stack, int dst, int src)
+void	set_mem_len(int dst, int src, t_stack *stack)
 {
 	stack->dst_len = dst;
 	stack->src_len = src;

@@ -86,13 +86,13 @@ void	radix(t_stack *stack)
 	while (!is_sorted(stack))
 	{
 		j = 0;
-		while (j++ < stack->size_a + stack->size_b)
+		while (j < stack->size_a + stack->size_b)
 		{
 			if ((stack->a[0] >> bit) & 1)
 				rotate(stack->a, stack->size_a, 'a');
 			else
 			{
-				set_mem_len(stack, stack->size_b, stack->size_a);
+				set_mem_len(stack->size_b, stack->size_a, stack);
 				push(stack->b, stack->a, stack, 'b');
 			}				
 			j++;
@@ -100,7 +100,7 @@ void	radix(t_stack *stack)
 		bit++;
 		while (stack->size_b > 0)
 		{
-			set_mem_len(stack, stack->size_a, stack->size_b);
+			set_mem_len(stack->size_a, stack->size_b, stack);
 			push(stack->a, stack->b, stack, 'a');
 		}
 	}

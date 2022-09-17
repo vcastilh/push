@@ -14,8 +14,8 @@
 
 int	is_integer(char *argv[])
 {
-	int			i;
-	long		temp;
+	int		i;
+	long	temp;
 
 	i = 1;
 	while (argv[i] != NULL)

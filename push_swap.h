@@ -45,5 +45,5 @@ void			re_order(t_stack *stack, long long nb_sum);
 void			sort_three(t_stack *stack);
 void			small_sort(t_stack *stack);
 void			radix(t_stack *stack);
-void			set_mem_len(t_stack *stack, int dst, int src);
+void			set_mem_len(int dst, int src, t_stack *stack);
 #endif
