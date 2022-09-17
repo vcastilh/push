@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:22:48 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/17 06:36:21 by coder            ###   ########.fr       */
+/*   Updated: 2022/09/17 12:18:25 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ int	is_integer(char *argv[])
 
 int	is_number(char *numb)
 {
+	while (*numb == '-' || *numb == '+')
+		numb++;
+	if (!*numb)
+		return (0);
 	while (*numb)
 	{
-		if (*numb == '-' || *numb == '+')
-			numb++;
-		else if (ft_isdigit(*numb))
+		if (ft_isdigit(*numb))
 			numb++;
 		else
 			return (0);
