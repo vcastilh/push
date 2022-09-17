@@ -67,7 +67,7 @@ int	is_duplicated(t_stack *stack)
 
 	i = 0;
 	tmp_size = stack->size_a;
-	while (i < tmp_size - 2)
+	while (i < tmp_size - 1)
 	{
 		j = i + 1;
 		while (j < tmp_size)
