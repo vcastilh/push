@@ -71,7 +71,7 @@ int	is_sorted(t_stack *stack)
 	}
 	return (1);
 }
-//"2", "1", "3", "6", "5", "8"
+
 void	small_sort(t_stack *stack)
 {
 	while (!check_sort(stack) || stack->size_b != 0)
@@ -82,14 +82,14 @@ void	small_sort(t_stack *stack)
 		{
 			stack->src_len = stack->size_b;
 			stack->dst_len = stack->size_a;
-			push(stack->a, stack->b, stack, 'a');//pa
+			push(stack->a, stack->b, stack, 'a');
 
 		}
 		else
 		{
 			stack->src_len = stack->size_a;
 			stack->dst_len = stack->size_b;
-			push(stack->b, stack->a, stack, 'b'); //pb
+			push(stack->b, stack->a, stack, 'b');
 		}
 	}
 }
@@ -124,4 +124,3 @@ void	radix(t_stack *stack)
 		}
 	}
 }
-//"2", "1", "3", "6", "5", "8"

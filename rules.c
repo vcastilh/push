@@ -25,7 +25,6 @@ void	swap(long long *vector, char stack)
 		write(1, "sb\n", 3);
 }
 
-// 212 32 5 42 9
 void	rotate(long long *vector, int size, char stack)
 {
 	long long	tmp;
