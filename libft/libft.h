@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 08:47:36 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 10:24:49 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/17 06:23:42 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,6 @@
 # ifndef LIMIT_FD
 #  define LIMIT_FD 256
 # endif
-
-typedef struct s_list
-{
-	int				content;
-	struct s_list	*next;
-}	t_list;
-
-typedef struct s_dlst
-{
-	int				content;
-	struct s_dlst	*prev;
-	struct s_dlst	*next;
-}	t_dlst;
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
@@ -71,17 +58,5 @@ char		**ft_split(char const *s, char c);
 char		*ft_get_next_line(int fd);
 long double	ft_atold(const char *nptr);
 char		*ft_getenv(char *name, char **envp);
-t_list		*ft_lstnew(void	*content);
-void		ft_lstadd_front(t_list **lst, t_list *new_node);
-int			ft_lstsize(t_list *lst);
-t_list		*ft_lstlast(t_list *lst);
-void		ft_lstadd_back(t_list **lst, t_list *new_node);
-void		ft_lstdelone(t_list *lst, void (*del)(void *));
-void		ft_lstclear(t_list **lst, void (*del)(void *));
-void		ft_lstiter(t_list *lst, void (*)(void *));
 long		ft_atol(const char *str);
-t_dlst		*ft_dlstnew(int content);
-t_dlst		*ft_dlstadd_back(t_dlst *old_node, int content);
-t_dlst		*ft_dlstlast(t_dlst *dlst);
-int			ft_dlst_size(t_dlst *dlst);
 #endif

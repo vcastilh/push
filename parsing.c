@@ -6,17 +6,16 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:22:48 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/12 15:24:52 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/17 06:36:21 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 int	is_integer(char *argv[])
 {
 	int			i;
-	long 		temp;
+	long		temp;
 
 	i = 1;
 	while (argv[i] != NULL)
@@ -45,16 +44,16 @@ int	is_number(char *numb)
 
 int	is_valid_numbers(char *argv[])
 {
-	int		i;
+	int	i;
 
 	i = 1;
 	while (argv[i] != NULL)
 	{
-		if(is_number(argv[i]) == 0)
+		if (is_number(argv[i]) == 0)
 			return (0);
 		i++;
 	}
-	if(is_integer(argv) == 0)
+	if (is_integer(argv) == 0)
 		return (0);
 	return (1);
 }

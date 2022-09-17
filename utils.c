@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:01:37 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/17 01:01:40 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/17 07:08:50 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,11 @@ void	re_order(t_stack *stack, long long nb_sum)
 	size = stack->size_a;
 	i = 0;
 	while (size--)
-		stack->a[i++] += nb_sum; 
+		stack->a[i++] += nb_sum;
+}
+
+void	set_mem_len(t_stack *stack, int dst, int src)
+{
+	stack->dst_len = dst;
+	stack->src_len = src;
 }

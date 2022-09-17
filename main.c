@@ -6,7 +6,7 @@
 /*   By: vcastilh <vcastilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:06:19 by vcastilh          #+#    #+#             */
-/*   Updated: 2022/09/15 15:32:16 by vcastilh         ###   ########.fr       */
+/*   Updated: 2022/09/17 06:42:26 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ int	init_stack(int argc, char *argv[], t_stack *stack)
 	i = 1;
 	while (argv[i] != NULL)
 	{
-		stack->a[i-1] = (long long)ft_atol(argv[i]);
+		stack->a[i - 1] = (long long)ft_atol(argv[i]);
 		i++;
 	}
 	return (0);
 }
 
-
 int	main(int argc, char *argv[])
 {
 	t_stack	stack;
 
-	if (argc < 2) 
+	if (argc < 2)
 		return (1);
-	if (init_stack(argc, argv, &stack) || is_duplicated(&stack) || !is_valid_numbers(argv))
+	if (init_stack(argc, argv, &stack) || is_duplicated(&stack)
+		|| !is_valid_numbers(argv))
 	{
 		free_stack(&stack);
 		write(1, "Error\n", 6);
